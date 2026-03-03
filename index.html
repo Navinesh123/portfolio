@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navinesh | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+    <style>
+        * {
+             margin:0; padding:0; box-sizing:border-box; 
+            }
+        body { 
+            background:linear-gradient(135deg,#090979 0%,#00d4ff 100%); color:white; font-family:'Segoe UI',sans-serif; scroll-behavior:smooth; 
+        }
+
+        /* HEADER */
+        .header {
+             display:flex; justify-content:space-between; align-items:center; padding:16px 40px; position:sticky; top:0; z-index:100; background:rgba(7,3,66,0.95); backdrop-filter:blur(12px); border-bottom:1px solid rgba(0,255,255,0.2); 
+            }
+        .port {
+             font-size:1.9rem; font-weight:bold; color:cyan; letter-spacing:1px; 
+            }
+        .ancher a {
+             text-decoration:none; font-size:16px; margin-left:22px; color:rgba(255,255,255,0.85); transition:color 0.3s; font-weight:500; }
+        .ancher a:hover, .ancher a.active { color:cyan; 
+        }
+        hr {
+             border-color:rgba(0,255,255,0.2); 
+            }
+        section {
+             min-height:100vh; padding:80px 60px; 
+            }
+        .section-title { 
+            text-align:center; font-size:2.4rem; color:cyan; margin-bottom:12px; font-weight:700; 
+        }
+        .section-subtitle {
+             text-align:center; opacity:0.6; margin-bottom:45px; font-size:1rem; letter-spacing:1px; text-transform:uppercase; 
+            }
+        @keyframes fadeUp {
+             from{transform:translateY(40px);opacity:0;} to{transform:translateY(0);opacity:1;} 
+            }
+
+        /* HOME */
+        #home { 
+            display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:40px; animation:fadeUp 0.9s ease; 
+        }
+        .home-text h2 {
+             font-size:1.3rem; opacity:0.8; margin-bottom:8px;
+             }
+        .home-text h1 {
+             font-size:3.4rem; font-weight:800; margin-bottom:8px; letter-spacing:1px; 
+            }
+        .home-text h3 {
+             font-size:1.7rem; margin-bottom:22px; 
+            }
+        .home-text h3 span {
+             color:cyan; font-weight:600; 
+            }
+        .home-text p {
+             max-width:520px; line-height:1.8; opacity:0.88; margin-bottom:32px; font-size:0.97rem; 
+            }
+        .social-btns {
+             display:flex; gap:12px; margin-bottom:28px; flex-wrap:wrap; 
+            }
+        .img-but {
+             border-radius:50%; border:2px solid cyan; padding:11px 13px; background:transparent; cursor:pointer; transition:transform 0.3s,background 0.3s;
+             }
+        .img-but:hover {
+             transform:scale(1.15); background:rgba(0,255,255,0.1); 
+            }
+        .img-but i { 
+            font-size:20px; color:cyan; 
+        }
+        .btn {
+             background:linear-gradient(135deg,cyan,#00a8cc); padding:13px 28px; border-radius:30px; border:none; color:#090979; font-size:1rem; font-weight:700; cursor:pointer; transition:transform 0.3s,box-shadow 0.3s; box-shadow:0 4px 20px rgba(0,255,255,0.3); 
+            }
+        .btn:hover {
+             transform:scale(1.07); box-shadow:0 6px 30px rgba(0,255,255,0.5); 
+            }
+        .home-img {
+             width:320px; height:320px; border-radius:50%; border:4px solid cyan; box-shadow:0 0 40px cyan,0 0 80px rgba(0,255,255,0.25); overflow:hidden; flex-shrink:0; 
+            }
+        .home-img img {
+             width:100%; height:100%; object-fit:cover; object-position:top;
+             }
+
+        /* ABOUT */
+        #about { 
+            display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:60px; background:rgba(0,0,0,0.12); animation:fadeUp 0.9s ease;
+         }
+        .about-img {
+             width:280px; height:280px; border-radius:50%; border:4px solid cyan; box-shadow:0 0 40px rgba(0,255,255,0.6); overflow:hidden; flex-shrink:0; 
+            }
+        .about-img img {
+             width:100%; height:100%; object-fit:cover; object-position:top;
+             }
+        .about-text {
+             max-width:580px; 
+            }
+        .about-text h1 {
+             font-size:2.4rem; color:cyan; margin-bottom:8px; font-weight:700; 
+            }
+        .about-text h2 {
+             margin-bottom:16px; opacity:0.8; font-weight:500; 
+            }
+        .about-text p {
+             line-height:1.85; opacity:0.9; font-size:0.97rem; 
+            }
+
+        /* SERVICE */
+        #service {
+             background:rgba(0,0,0,0.08); animation:fadeUp 0.9s ease; 
+            }
+        .service-cards {
+             display:flex; justify-content:center; flex-wrap:wrap; gap:28px; 
+            }
+        .service-card {
+             width:270px; padding:32px 22px; border-radius:16px; box-shadow:0 0 25px rgba(0,255,255,0.3); transition:transform 0.4s,box-shadow 0.4s; text-align:center; background:rgba(9,9,121,0.5); border:1px solid rgba(0,255,255,0.2); 
+            }
+        .service-card:hover { 
+            transform:translateY(-8px); box-shadow:0 0 50px rgba(0,255,255,0.6); 
+        }
+        .service-card .icon-wrap {
+             width:65px; height:65px; border-radius:50%; background:rgba(0,255,255,0.1); border:2px solid cyan; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; 
+            }
+        .service-card i { 
+            font-size:1.8rem; color:cyan; 
+        }
+        .service-card h2 {
+             color:cyan; margin-bottom:12px; font-size:1.15rem; 
+            }
+        .service-card p {
+             line-height:1.7; opacity:0.88; font-size:0.92rem;
+             }
+
+        /* SKILLS */
+        #skills { 
+            background:rgba(0,0,0,0.12); animation:fadeUp 0.9s ease; 
+        }
+        .skills-wrapper {
+             display:flex; justify-content:space-between; flex-wrap:wrap; gap:60px;
+             }
+        .tech-skills {
+             flex:1; min-width:280px; 
+            }
+        .tech-skills h2 {
+             color:cyan; font-size:1.6rem; margin-bottom:28px; font-weight:700; 
+            }
+        .skill-item {
+             margin-bottom:20px; 
+            }
+        .skill-item label {
+             display:flex; align-items:center; justify-content:space-between; font-size:1rem; margin-bottom:8px; 
+            }
+        .skill-label-left {
+             display:flex; align-items:center; gap:9px; 
+            }
+        .skill-bar {
+             width:100%; height:9px; border-radius:10px; background:rgba(255,255,255,0.15); overflow:hidden; 
+            }
+        .skill-fill { 
+            height:100%; border-radius:10px; background:linear-gradient(90deg,cyan,#00a8cc); width:0; transition:width 1.6s ease;
+         }
+        .divider { 
+            width:1px; background:rgba(0,255,255,0.3);
+        }
+        .pro-skills { 
+            flex:1; min-width:280px;
+         }
+        .pro-skills h2 {
+             color:cyan; font-size:1.6rem; margin-bottom:28px; font-weight:700; 
+            }
+        .circles-grid {
+             display:grid; grid-template-columns:1fr 1fr; gap:24px; justify-items:center; 
+            }
+        .circle-item { 
+            text-align:center; 
+        }
+        .circle-fill { 
+            fill:none; stroke:cyan; stroke-width:7; stroke-linecap:round; stroke-dasharray:314; stroke-dashoffset:314; transform:rotate(-90deg); transform-origin:60px 60px; transition:stroke-dashoffset 1.6s ease; 
+        }
+        .circle-label {
+             fill:white; font-size:15px; font-weight:700; 
+            }
+        .circle-item p {
+             margin-top:7px; font-size:0.88rem; color:lightcyan;
+             }
+
+        /* PROJECT */
+        #project { 
+            background:rgba(0,0,0,0.08); animation:fadeUp 0.9s ease; 
+        }
+        .project-grid { 
+            display:flex; justify-content:center; flex-wrap:wrap; gap:28px; 
+        }
+        .project-card {
+            width:310px; padding:28px; border-radius:18px; box-shadow:0 0 25px rgba(0,255,255,0.3); background:rgba(9,9,121,0.5); border:1px solid rgba(0,255,255,0.2); transition:transform 0.3s,box-shadow 0.3s; 
+        }
+        .project-card:hover { 
+            transform:translateY(-8px); box-shadow:0 0 50px rgba(0,255,255,0.6);
+         }
+        .project-card .proj-header { 
+            display:flex; align-items:center; gap:12px; margin-bottom:14px; 
+        }
+        .proj-icon-wrap {
+             width:50px; height:50px; border-radius:12px; background:rgba(0,255,255,0.1); border:1px solid cyan; display:flex; align-items:center; justify-content:center; flex-shrink:0; 
+            }
+        .proj-icon-wrap i { 
+            font-size:1.5rem; color:cyan; 
+        }
+        .project-card h3 {
+             color:cyan; font-size:1.05rem; font-weight:700;
+             }
+        .project-card p {
+             line-height:1.7; opacity:0.88; font-size:0.92rem; 
+            }
+        .proj-tags { 
+            display:flex; flex-wrap:wrap; gap:6px; margin-top:14px; 
+        }
+        .tag { 
+            background:rgba(0,255,255,0.1); border:1px solid rgba(0,255,255,0.4); padding:3px 10px; border-radius:20px; font-size:0.75rem; color:cyan;
+         }
+
+        /* CONTACT */
+        #contact { 
+            background:rgba(0,0,0,0.12); animation:fadeUp 0.9s ease;
+        }
+        .contact-wrapper { 
+            display:flex; justify-content:space-between; flex-wrap:wrap; gap:60px; align-items:flex-start;
+        }
+        .contact-info {
+             max-width:500px; 
+            }
+        .contact-info h2 {
+             color:cyan; font-size:1.9rem; margin-bottom:16px; font-weight:700; 
+            }
+        .contact-info > p {
+             line-height:1.85; opacity:0.88; margin-bottom:26px; font-size:0.97rem; 
+            }
+        .contact-detail { 
+            display:flex; align-items:center; gap:14px; margin-bottom:16px; font-size:0.97rem; 
+        }
+        .contact-icon {
+             width:42px; height:42px; border-radius:50%; background:rgba(0,255,255,0.1); border:2px solid cyan; display:flex; align-items:center; justify-content:center; flex-shrink:0; 
+            }
+        .contact-icon i { 
+            color:cyan; font-size:1.1rem; 
+        }
+        .contact-socials {
+             display:flex; gap:12px; margin-top:26px; flex-wrap:wrap;
+             }
+        .contact-img {
+             width:300px; border-radius:20px; border:3px solid cyan; box-shadow:0 0 40px rgba(0,255,255,0.5); overflow:hidden; 
+            }
+        .contact-img img { 
+            width:100%; height:100%; object-fit:cover; object-position:top; display:block;
+         }
+
+        @media(max-width:768px) {
+            section {
+                 padding:60px 20px; 
+                }
+            #home,#about { 
+                flex-direction:column; align-items:center; text-align:center;
+             }
+            .home-text h1 {
+                 font-size:2.5rem; }
+            .social-btns,.contact-socials { justify-content:center; 
+            }
+            .divider {
+                 display:none; 
+                }
+            .ancher a {
+                 font-size:12px; margin-left:8px; 
+                }
+            .home-img,.about-img {
+                 width:220px; height:220px; 
+                }
+            .port { 
+                font-size:1.4rem; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1 class="port">Portfolio</h1>
+    <div class="ancher">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#service">Service</a>
+        <a href="#skills">Skills</a>
+        <a href="#project">Project</a>
+        <a href="#contact">Contact</a>
+    </div>
+</div>
+<hr>
+
+<!-- HOME -->
+<section id="home">
+    <div class="home-text">
+        <h2>Hello, It's Me</h2>
+        <h1>Navinesh</h1>
+        <h3>And I'm a <span class="typed-text"></span></h3>
+        <p>A passionate frontend developer who crafts responsive, user-friendly web experiences using modern technologies. I turn ideas into interactive, visually engaging digital products.</p>
+        <div class="social-btns">
+            <a href="https://www.linkedin.com/in/navinesh-k-1b313427b" target="_blank">
+            <button class="img-but"><i class="fa-brands fa-linkedin-in"></i></button></a>
+            <a href="#"><button class="img-but"><i class="fa-brands fa-whatsapp"></i></button></a>
+            <a href="https://www.instagram.com/navinesh777" target="_blank">
+            <button class="img-but"><i class="fa-brands fa-instagram"></i></button></a>
+           <a href="https://github.com/Navinesh123" target="_blank">
+            <button class="img-but"><i class="fa-brands fa-github"></i></button></a>
+        </div>
+        <a href="#about"><button class="btn">More About Me &nbsp;<i class="fa-solid fa-arrow-right"></i></button></a>
+    </div>
+    <div class="home-img">
+        <!-- Save your photo as photo.jpg in same folder -->
+        <img src="image/photo.jpg" alt="Navinesh" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:80px;\'>🧑</div>'">
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="about-img">
+        <img src="image/photo.jpg" alt="Navinesh" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:70px;\'>🧑</div>'">
+    </div>
+    <div class="about-text">
+        <h1>About Me</h1>
+        <h2><i class="fa-solid fa-code" style="color:cyan;margin-right:8px"></i>Frontend Web Developer</h2>
+        <p>I am a dedicated web developer with a genuine passion for building clean, intuitive interfaces. My expertise spans HTML, CSS, and JavaScript, backed by a foundational grasp of Python and Java for server-side understanding. Alongside development, I have ventured into digital marketing — understanding audience behavior and content strategy to build websites that are not only functional but also impactful. My current focus is developing a full-featured e-commerce platform, pushing my skills further with every feature I build.</p>
+        <a href="#contact"><button class="btn" style="margin-top:26px"><i class="fa-solid fa-paper-plane" style="margin-right:6px"></i>Get In Touch</button></a>
+    </div>
+</section>
+
+<!-- SERVICE -->
+<section id="service">
+    <h1 class="section-title">What I Offer</h1>
+    <p class="section-subtitle">Services tailored to your needs</p>
+    <div class="service-cards">
+        <div class="service-card">
+            <div class="icon-wrap"><i class="fa-solid fa-pen-ruler"></i></div>
+            <h2>Web Design</h2>
+            <p>Pixel-perfect, responsive layouts built with HTML, CSS, and JavaScript — focused on aesthetic clarity and smooth user experience across all screen sizes.</p>
+        </div>
+        <div class="service-card">
+            <div class="icon-wrap"><i class="fa-solid fa-bag-shopping"></i></div>
+            <h2>E-Commerce</h2>
+            <p>End-to-end online store development — from product listing to cart and checkout — with clean UI and reliable functionality for real business use.</p>
+        </div>
+        <div class="service-card">
+            <div class="icon-wrap"><i class="fa-solid fa-window-maximize"></i></div>
+            <h2>Web Applications</h2>
+            <p>Interactive, data-driven web apps with dynamic content, authentication systems, and smooth UI built using modern frontend technologies and React.</p>
+        </div>
+        <div class="service-card">
+            <div class="icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
+            <h2>Digital Marketing</h2>
+            <p>Content strategy, social media campaigns, and hashtag optimization to boost online presence and drive engagement for brands and products.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h1 class="section-title">My Skills</h1>
+    <p class="section-subtitle">Technologies & competencies</p>
+    <div class="skills-wrapper">
+        <div class="tech-skills">
+            <h2><i class="fa-solid fa-microchip" style="margin-right:8px;color:cyan"></i>Technical Skills</h2>
+            <div class="skill-item">
+                <label><span class="skill-label-left"><i class="fa-brands fa-html5" style="color:#e34c26;font-size:1.1rem"></i> HTML5</span><span>95%</span></label>
+                <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+            </div>
+            <div class="skill-item">
+                <label><span class="skill-label-left"><i class="fa-brands fa-css3-alt" style="color:#147bbc;font-size:1.1rem"></i> CSS3</span><span>98%</span></label>
+                <div class="skill-bar"><div class="skill-fill" data-width="98"></div></div>
+            </div>
+            <div class="skill-item">
+                <label><span class="skill-label-left"><i class="fa-brands fa-js" style="color:#f7df1e;font-size:1.1rem"></i> JavaScript</span><span>85%</span></label>
+                <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+                <label><span class="skill-label-left"><i class="fa-brands fa-python" style="color:#c32ec9;font-size:1.1rem"></i> Python</span><span>60%</span></label>
+                <div class="skill-bar"><div class="skill-fill" data-width="60"></div></div>
+            </div>
+            <div class="skill-item">
+                <label><span class="skill-label-left"><i class="fa-brands fa-java" style="color:#007396;font-size:1.1rem"></i> Java</span><span>60%</span></label>
+                <div class="skill-bar"><div class="skill-fill" data-width="60"></div></div>
+            </div>
+            <div class="skill-item">
+                <label><span class="skill-label-left"><i class="fa-solid fa-chart-line" style="color:cyan;font-size:1rem"></i> Digital Marketing</span><span>60%</span></label>
+                <div class="skill-bar"><div class="skill-fill" data-width="60"></div></div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="pro-skills">
+            <h2><i class="fa-solid fa-star" style="margin-right:8px;color:cyan"></i>Professional Skills</h2>
+            <div class="circles-grid">
+                <div class="circle-item">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="50" fill="rgba(9,9,121,0.6)" stroke="rgba(255,255,255,0.1)" stroke-width="7"/>
+                        <circle cx="60" cy="60" r="50" class="circle-fill" data-percent="90"/>
+                        <text x="60" y="65" text-anchor="middle" class="circle-label">90%</text>
+                    </svg><p>Creativity</p>
+                </div>
+                <div class="circle-item">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="50" fill="rgba(9,9,121,0.6)" stroke="rgba(255,255,255,0.1)" stroke-width="7"/>
+                        <circle cx="60" cy="60" r="50" class="circle-fill" data-percent="75"/>
+                        <text x="60" y="65" text-anchor="middle" class="circle-label">75%</text>
+                    </svg><p>Communication</p>
+                </div>
+                <div class="circle-item">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="50" fill="rgba(9,9,121,0.6)" stroke="rgba(255,255,255,0.1)" stroke-width="7"/>
+                        <circle cx="60" cy="60" r="50" class="circle-fill" data-percent="80"/>
+                        <text x="60" y="65" text-anchor="middle" class="circle-label">80%</text>
+                    </svg><p>Problem Solving</p>
+                </div>
+                <div class="circle-item">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="50" fill="rgba(9,9,121,0.6)" stroke="rgba(255,255,255,0.1)" stroke-width="7"/>
+                        <circle cx="60" cy="60" r="50" class="circle-fill" data-percent="90"/>
+                        <text x="60" y="65" text-anchor="middle" class="circle-label">90%</text>
+                    </svg><p>Team Work</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECT -->
+<section id="project">
+    <h1 class="section-title">My Projects</h1>
+    <p class="section-subtitle">Things I've built</p>
+    <div class="project-grid">
+
+        <div class="project-card">
+            <div class="proj-header">
+                <div class="proj-icon-wrap"><i class="fa-solid fa-cart-shopping"></i></div>
+                <h3>Household Products<br>E-Commerce Website</h3>
+            </div>
+            <p>A fully functional e-commerce platform for purchasing household products online. Features include product listings, category filters, shopping cart, and a streamlined checkout experience — built with a clean, shopper-friendly UI.</p>
+            <div class="proj-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">E-Commerce</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="proj-header">
+                <div class="proj-icon-wrap"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h3>Exam Registration<br>System</h3>
+            </div>
+            <p>A web-based exam registration portal that allows students to register for exams, view schedules, and manage enrollment. Designed with intuitive form handling, validation, and a structured dashboard for administrators.</p>
+            <div class="proj-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Forms</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="proj-header">
+                <div class="proj-icon-wrap"><i class="fa-solid fa-robot"></i></div>
+                <h3>AI-Based Multimodal<br>Deepfake Detection</h3>
+            </div>
+            <p>An AI-powered system designed to detect deepfake content across multiple media types — images, audio, and video. Leverages machine learning models to analyze and flag manipulated media with a user-friendly frontend interface.</p>
+            <div class="proj-tags">
+                <span class="tag">Python</span>
+                <span class="tag">AI / ML</span>
+                <span class="tag">Multimodal</span>
+                <span class="tag">Deep Learning</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h1 class="section-title">Contact Me</h1>
+    <p class="section-subtitle">Let's build something together</p>
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <h2>Let's Work Together!</h2>
+            <p>I'm open to freelance projects, collaborations, and full-time frontend roles. Whether you need a website, web app, or a creative digital solution — I'd love to hear from you.</p>
+            <div class="contact-detail">
+                <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                <span>navineshnavinesh50@gmail.com</span>
+            </div>
+            <div class="contact-detail">
+                <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                <span>+91 86677 63223</span>
+            </div>
+            <div class="contact-detail">
+                <div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                <span>linkedin.com/in/navinesh-k</span>
+            </div>
+            <div class="contact-socials">
+                <a href="https://www.linkedin.com/in/navinesh-k-1b313427b" target="_blank">
+                <button class="img-but"><i class="fa-brands fa-linkedin-in"></i></button></a>
+                <a href="#"><button class="img-but"><i class="fa-brands fa-whatsapp"></i></button></a>
+                <a href="https://www.instagram.com/navinesh777" target="_blank">
+                <button class="img-but"><i class="fa-brands fa-instagram"></i></button></a>
+                <a href="https://github.com/Navinesh123" target="_blank">
+                <button class="img-but"><i class="fa-brands fa-github"></i></button></a>
+            </div>
+        </div>
+        <div class="contact-img">
+            <img src="image/photo.jpg" alt="Navinesh" onerror="this.style.display='none'">
+        </div>
+    </div>
+</section>
+
+<script>
+    new Typed('.typed-text', {
+        strings: ['Frontend Developer', 'Web Developer', 'UI Designer', 'Problem Solver'],
+        typeSpeed: 75, backSpeed: 55, backDelay: 1400, loop: true
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+                bar.style.width = bar.dataset.width + '%';
+            });
+            const C = 2 * Math.PI * 50;
+            entry.target.querySelectorAll('.circle-fill').forEach(c => {
+                c.style.strokeDasharray = C;
+                c.style.strokeDashoffset = C - (parseFloat(c.dataset.percent) / 100) * C;
+            });
+            observer.unobserve(entry.target);
+        });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('section').forEach(s => observer.observe(s));
+
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.ancher a');
+    window.addEventListener('scroll', () => {
+        let cur = '';
+        sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) cur = s.id; });
+        navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + cur ? 'cyan' : ''; });
+    });
+</script>
+</body>
+</html>
